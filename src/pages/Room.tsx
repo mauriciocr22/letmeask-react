@@ -21,7 +21,7 @@ export function Room() {
   const [ newQuestion, setNewQuestion ] = useState('');
   const roomId = params.id;
 
-  const { theme, toggleTheme } = useTheme()
+  const { theme } = useTheme()
 
   const { questions, title } = useRoom(roomId)
 

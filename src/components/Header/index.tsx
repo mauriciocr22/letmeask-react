@@ -33,7 +33,7 @@ export function Header({ isAdmin = false, handleEndRoom }: HeaderProps ) {
       {dark: theme === "dark"}
     )}>
       <img src={theme === 'dark' ? darkLogoImg : logoImg} alt="Letmeask" />
-      <div>
+      <div className={theme}>
         <RoomCode code={roomId} />
         { isAdmin && <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>}
         <ThemeButton />

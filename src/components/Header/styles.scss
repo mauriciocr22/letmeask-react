@@ -20,6 +20,12 @@ header {
       display: flex;
       gap: 16px;
 
+      &.dark {
+        button {
+          height: 40px;
+        }
+      }
+
       button {
         height: 40px;
       }
