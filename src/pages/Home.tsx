@@ -7,16 +7,19 @@ import { useAuth } from '../hooks/useAuth';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
+import darkLogoImg from '../assets/images/logodark.svg'
 import googleIconImg from '../assets/images/google-icon.svg'
 
 import { Button } from '../components/Button';
 
 import '../styles/auth.scss';
+import { useTheme } from '../hooks/useTheme';
 
 export function Home() {
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth()
   const [ roomCode, setRoomCode ] = useState('');
+  const { theme } = useTheme();
 
   async function handleCreateRoom() {
     if (!user) {
@@ -57,7 +60,7 @@ export function Home() {
       </aside>
       <main>
         <div className="main-content">
-          <img src={logoImg} alt="Letmeask" />
+          <img src={theme === 'dark' ? darkLogoImg : logoImg} alt="Letmeask" />
           <button onClick={handleCreateRoom} className="create-room">
             <img src={googleIconImg} alt="Logo do Google" />
             Crie sua sala com o Google
@@ -69,6 +72,7 @@ export function Home() {
              placeholder="Digite o código da sala"
              onChange={event => setRoomCode(event.target.value)}
              value={roomCode}
+             className={theme}
              />
              <Button type="submit">
                Entrar na sala

@@ -3,17 +3,20 @@ import { Link, useHistory } from 'react-router-dom'
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
+import darkLogoImg from '../assets/images/logodark.svg'
 
 import { Button } from '../components/Button';
 import { database } from '../services/firebase';
 import { useAuth } from '../hooks/useAuth';
 
 import '../styles/auth.scss';
+import { useTheme } from '../hooks/useTheme';
 
 export function NewRoom() {
   const { user } = useAuth();
   const history = useHistory();
   const [ newRoom, setNewRoom ]  = useState('');
+  const { theme } = useTheme();
 
   async function handleCreateRoom(event: FormEvent) {
     event.preventDefault();
@@ -41,7 +44,7 @@ export function NewRoom() {
       </aside>
       <main>
         <div className="main-content">
-          <img src={logoImg} alt="Letmeask" />
+          <img src={theme === 'dark' ? darkLogoImg : logoImg} alt="Letmeask" />
           <h2>Criar uma nova sala</h2>
           <form onSubmit={handleCreateRoom}>
             <input
@@ -49,6 +52,7 @@ export function NewRoom() {
              placeholder="Nome da sala"
              onChange={event => setNewRoom(event.target.value)}
              value={newRoom}
+             className={theme}
              />
              <Button type="submit">
                Criar sala
