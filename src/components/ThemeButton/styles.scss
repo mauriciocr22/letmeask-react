@@ -1,0 +1,23 @@
+.theme-button {
+  font-size: 0;
+  background: transparent;
+  border: none;
+  // border-radius: 100%;
+  // padding: 8px;
+
+  cursor: pointer;
+  
+
+  svg {
+    color: #835afd;
+    width: 30px;
+    height: 30px;
+  }
+
+  &.dark {
+    svg {
+      fill: white;
+      
+    }
+  }
+}
