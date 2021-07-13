@@ -6,6 +6,7 @@ import { Header } from '../components/Header';
 import { Question } from '../components/Question';
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
+import { useTheme } from '../hooks/useTheme';
 import { database } from '../services/firebase';
 
 import '../styles/room.scss';
@@ -20,8 +21,9 @@ export function Room() {
   const [ newQuestion, setNewQuestion ] = useState('');
   const roomId = params.id;
 
-  const { questions, title } = useRoom(roomId)
+  const { theme, toggleTheme } = useTheme()
 
+  const { questions, title } = useRoom(roomId)
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -61,9 +63,9 @@ export function Room() {
   return (
     <div id="page-room">
       <Header />
-      <main>
+      <main className={theme}>
         <div className="room-title">
-          <h1>Sala {title}</h1>
+          <h1 className={theme}>Sala {title}</h1>
           { questions.length > 0 && <span>{questions.length} perguntas(s)</span> }
         </div>
 
@@ -72,16 +74,17 @@ export function Room() {
           placeholder="O que você quer perguntar?"
           onChange={event => setNewQuestion(event.target.value)}
           value={newQuestion}
+          className={theme}
           />
 
           <div className="form-footer">
             { user ? (
               <div className="user-info">
                 <img src={user.avatar} alt={user.name} />
-                <span>{user.name}</span>
+                <span className={theme}>{user.name}</span>
               </div>
             ) : (
-              <span>Para enviar uma pergunta, <button>faça seu login.</button></span>
+              <span className={theme}>Para enviar uma pergunta, <button>faça seu login.</button></span>
             ) }
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
           </div>

@@ -4,19 +4,36 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
 
+  &.dark {
+    background: #423F3E;
+
+    &.highlighted {
+      background: #423F3E;
+
+      footer .user-info span {
+        color: #d4d3d3;
+      }
+    }
+
+    &.answered {
+      background: rgba(20, 20, 20, 0.575);
+    }
+  }
+
   & + .question {
     margin-top: 8px;
   }
 
   &.highlighted {
     background: #f4f0ff;
-    border: 1px solid #835afd;
+    border: 1px solid #e559f9;
     
     footer .user-info span {
       color: #29292e;
     }
   }
   
+
   &.answered {
     background: #DBDCDD;
   }
@@ -76,6 +93,20 @@
 
       &:hover {
         filter:brightness(0.7);
+      }
+    }
+  }
+}
+
+p.dark {
+  color: #d4d3d3;
+}
+
+footer {
+  &.dark {
+    .user-info {
+      span {
+        color: #d4d3d3;
       }
     }
   }

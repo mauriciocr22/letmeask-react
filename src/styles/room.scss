@@ -12,6 +12,10 @@
         font-family: 'Poppins', sans-serif;
         font-size: 24px;
         color: #29292e;
+
+        &.dark {
+          color: #d4d3d3;
+        }
       }
 
       span {
@@ -35,6 +39,12 @@
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         resize: vertical;
         min-height: 130px;
+
+        &.dark {
+          background: #423F3E;
+          outline: none;
+          color: #d4d3d3;
+        }
       }
 
       .form-footer {
@@ -58,6 +68,10 @@
             color: #29292e;
             font-weight: 500;
             font-size: 14px;
+
+            &.dark {
+              color: #d4d3d3;
+            }
           }
         }
 
@@ -65,6 +79,10 @@
           font-size: 14px;
           color: #737380;
           font-weight: 500;
+
+          &.dark {
+            color: #d4d3d3;
+          }
 
           button {
             background: transparent;
