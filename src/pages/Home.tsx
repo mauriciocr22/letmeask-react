@@ -3,17 +3,22 @@ import { useHistory } from 'react-router-dom'
 
 import { database } from '../services/firebase';
 
+import SVG from 'react-inlinesvg';
+
 import { useAuth } from '../hooks/useAuth';
+import { useTheme } from '../hooks/useTheme';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 import darkLogoImg from '../assets/images/logodark.svg'
 import googleIconImg from '../assets/images/google-icon.svg'
+import githubIcon from '../assets/images/github.svg'
+import whatsappIcon from '../assets/images/whatsapp.svg'
+import linkedinIcon from '../assets/images/linkedin.svg'
 
 import { Button } from '../components/Button';
 
 import '../styles/auth.scss';
-import { useTheme } from '../hooks/useTheme';
 
 export function Home() {
   const history = useHistory();
@@ -56,7 +61,8 @@ export function Home() {
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
-        <p>Tire as dúvidas da sua audiência em tempo-real</p>
+        <p>Tire as dúvidas da sua audiência em tempo-real</p>   
+        
       </aside>
       <main>
         <div className="main-content">
@@ -78,6 +84,23 @@ export function Home() {
                Entrar na sala
              </Button>
           </form>
+          <ul id="socials-icons" className={theme}>
+            <li>
+              <a href="https://www.linkedin.com/in/maur%C3%ADcio-de-carvalho-96b716213/" target="_blank" rel="noopener noreferrer">
+                <SVG src={linkedinIcon}/>      
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/mauriciocr22" target="_blank" rel="noopener noreferrer">
+                <SVG src={githubIcon}/>      
+              </a>
+            </li>
+            <li>
+              <a href="https://api.whatsapp.com/send?phone=5513974069042" target="_blank" rel="noopener noreferrer">
+                <SVG src={whatsappIcon}/>      
+              </a>
+            </li>
+        </ul>
         </div>
       </main>
     </div>

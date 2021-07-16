@@ -75,7 +75,7 @@
           color: #d4d3d3;
         }
       }
-
+      
       button {
         margin-top: 16px;
       }
@@ -84,6 +84,32 @@
         width: 100%;
       }
     }
+
+    #socials-icons {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      align-self: center;
+      width: fit-content;
+
+      li + li {
+        margin-left: 12px;
+      }
+      
+      &.dark {
+        SVG {
+          fill: #fff;
+        }
+      }
+
+      SVG {
+        height: 25px;
+        width: 25px;
+        fill: #333;
+      }
+    }
+
 
     p {
       font-size: 14px;
