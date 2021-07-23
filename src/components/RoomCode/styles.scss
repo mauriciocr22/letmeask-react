@@ -33,3 +33,11 @@
     font-weight: 500;
   }
 }
+
+@media (max-width: 768px) {
+  .room-code {
+    span {
+      display: none;
+    }
+  }
+}
