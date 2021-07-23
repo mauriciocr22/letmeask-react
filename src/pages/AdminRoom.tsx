@@ -27,11 +27,13 @@ export function AdminRoom() {
   const { theme } = useTheme();
 
   async function handleEndRoom() {
-    await database.ref(`rooms/${roomId}`).update({
-      endedAt: new Date(),
-    })
+    if(window.confirm("Tem certeza que deseja encerrar a sala?")) {
+      await database.ref(`rooms/${roomId}`).update({
+        endedAt: new Date(),
+      })
 
-    history.push('/');
+      history.push('/');
+    }
   }
 
   async function handleDeleteQuestion(questionId: string) {
