@@ -32,3 +32,11 @@ header {
     }
   }
 }
+
+.svg-close {
+  width: 20px;
+  
+  &.dark {
+    fill: #fff;
+  }
+}

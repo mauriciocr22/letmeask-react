@@ -41,3 +41,11 @@
       cursor: not-allowed;
     }
 }
+
+@media (max-width: 768px) {
+  .button {
+    &.outlined {
+      padding: 0 12px;
+    }
+  }
+}
